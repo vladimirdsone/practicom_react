@@ -1,0 +1,47 @@
+.logo {
+    margin-right: 190px;
+  }
+
+.header {
+    background: #1C1C21;
+    width: 1920px;
+    height: 88px;
+    gap: 5%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+.disabled {
+    color: #8585AD;
+  }
+  
+.block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 56px;
+    border-radius: 10px;
+    width: 197px;
+    
+
+}
+
+
+.item h3 {
+  white-space: nowrap;
+}
+
+.item:disabled {
+  color: #8585AD;
+}
