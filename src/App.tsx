@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Constuctor from './components/BurgerConstructor/construction';
 import Header from './components/AppHeader/Header';
 import LabTabs from './components/BurgerIngredients/BurgerIngredients';

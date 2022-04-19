@@ -219,6 +219,7 @@ export default class Constuctor extends React.Component {
 
     render(){
         return (
+            <div className={ConstStyles.main}> 
             <div className={ConstStyles.container_block }>
               
                {this.state.ingredients.map((ingredient, index)=>(
@@ -226,13 +227,17 @@ export default class Constuctor extends React.Component {
                     <div className={ConstStyles.bugrers_block}>
                       <div className={ConstStyles.element}>
                         <img className='{ConstStyles.burger-image}' src={ingredient.image_mobile} />
-                        <span className="{ConstStyles.burgers_name} text_type_main-medium">{ingredient.name}</span>
-                        
-                        <div className="{ConstStyles.burgers_price} text_type_main-medium">{ingredient.price}<CurrencyIcon type="primary"/></div>
-                      </div>  
-                    </div> 
+                      
+                        <span className="{ConstStyles.burgers_name} ">{ingredient.name}</span>
+                        <span>{ingredient.price}</span>
+                        <span><CurrencyIcon type="primary"/></span>
+                     </div>   
+                     
+                    
+                   </div> 
+                    
                 ))} 
-            </div>
+            </div></div>
         );
     }
 }

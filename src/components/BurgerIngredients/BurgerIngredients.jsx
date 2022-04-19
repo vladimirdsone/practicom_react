@@ -248,14 +248,22 @@ export default class BurgerIngredients extends React.Component
                         {this.state.ingredients.map((ingredient)=>{
                         
                             if(ingredient.type === "bun") {
-                            return <p>{ingredient.name}</p>
+                            return (<p>{ingredient.name}</p>);
                         }})}
                     </li>
                     <li key={2}>
                         <h1 id="sauce">Соусы</h1>
                         {this.state.ingredients.map((ingredient)=>{
                         
-                        if(ingredient.type === "sauce") {
+                            if(ingredient.type === "sauce") {
+                            return (<p>{ingredient.name}</p>)
+                        }})}
+                    </li>
+                    <li key="3">
+                        <h1 id="main">Начинки</h1>
+                        {this.state.ingredients.map((ingredient)=>{
+                        
+                            if(ingredient.type === "sauce") {
                             return (<p>{ingredient.name}</p>)
                         }})}
                     </li>
