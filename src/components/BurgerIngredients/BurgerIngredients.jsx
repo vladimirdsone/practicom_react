@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import  {Tab}  from '@ya.praktikum/react-developer-burger-ui-components';
+import  {Tab, Counter}  from '@ya.praktikum/react-developer-burger-ui-components';
 import IndStyle from './BurgerIngredients.module.css';
 
 

@@ -1,12 +1,8 @@
 body {
   width: 100%;
   margin: 0;
-  font-family: 'JetBrains Mono', Arial, sans-serif;
+  font-family: 'JetBrainsMono-Bold', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}

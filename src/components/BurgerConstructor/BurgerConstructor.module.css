@@ -9,7 +9,7 @@
     align-items: flex-start;
     padding: 0px;
     overflow-y: scroll;
-    height: 550px;
+    height: 650px;
     position: relative;
     top: 100px;
     
@@ -27,15 +27,15 @@
 }
     
 .bugrers_block {
-    font-family: 'JetBrains Mono', Arial, sans-serif;
+    font-family: 'JetBrainsMono-Bold', Arial, sans-serif;
     font-size: 20px;
     display: inline-block;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     padding: 16px 32px 16px 24px;
-    width: 600px;
-    height: 60px;
+    width: 540px;
+    height: 57px;
     left: 32px;
     margin-top: 16px;
     background: #1C1C21;

@@ -14,6 +14,7 @@
     height: 600px; 
     width: 600px;
     overflow-y: scroll;
+    font-family: 'JetBrains Mono', Arial, sans-serif;
 }
 
 .ingredients_block::-webkit-scrollbar {
