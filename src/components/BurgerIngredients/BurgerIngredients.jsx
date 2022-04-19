@@ -243,28 +243,68 @@ export default class BurgerIngredients extends React.Component
                 <LabTabs />
                 
                 <ul className={IndStyle.ingredients_block}>
-                    <li key={1}>
+                    <li >
                         <h1 id="bun">Булки</h1>
                         {this.state.ingredients.map((ingredient)=>{
                         
                             if(ingredient.type === "bun") {
-                            return (<p>{ingredient.name}</p>);
+                            return (
+                            <div >
+                                <div> 
+                                    <img src={ingredient.image} />
+                                </div>  
+                                <div className={IndStyle.ingredients_item}> 
+                                    {ingredient.name}
+                                </div>   
+                                <div>
+                                 {ingredient.price}
+                                </div>    
+                                    
+                            </div>
+                            );
+                            
                         }})}
                     </li>
-                    <li key={2}>
+                    <li key={2} >
                         <h1 id="sauce">Соусы</h1>
                         {this.state.ingredients.map((ingredient)=>{
                         
                             if(ingredient.type === "sauce") {
-                            return (<p>{ingredient.name}</p>)
+                                return (
+                                    <div >
+                                        <div> 
+                                            <img src={ingredient.image} />
+                                        </div>  
+                                        <div className={IndStyle.ingredients_item}> 
+                                            {ingredient.name}
+                                        </div>   
+                                        <div>
+                                         {ingredient.price}
+                                        </div>    
+                                            
+                                    </div>
+                                    );
                         }})}
                     </li>
                     <li key="3">
                         <h1 id="main">Начинки</h1>
                         {this.state.ingredients.map((ingredient)=>{
                         
-                            if(ingredient.type === "sauce") {
-                            return (<p>{ingredient.name}</p>)
+                            if(ingredient.type === "main") {
+                                return (
+                                    <div >
+                                        <div> 
+                                            <img src={ingredient.image} />
+                                        </div>  
+                                        <div className={IndStyle.ingredients_item}> 
+                                            {ingredient.name}
+                                        </div>   
+                                        <div>
+                                         {ingredient.price}
+                                        </div>    
+                                            
+                                    </div>
+                                    );
                         }})}
                     </li>
                 </ul></div>
