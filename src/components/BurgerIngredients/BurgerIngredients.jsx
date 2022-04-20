@@ -243,22 +243,24 @@ export default class BurgerIngredients extends React.Component
                 <LabTabs />
                 
                 <ul className={IndStyle.ingredients_block}>
-                    <li >
+                    <li>
                         <h1 id="bun">Булки</h1>
                         {this.state.ingredients.map((ingredient)=>{
                         
                             if(ingredient.type === "bun") {
                             return (
-                            <div >
-                                <div> 
-                                    <img src={ingredient.image} />
+                            <div className={IndStyle.bgmain}>
+                                
+                                <div  className={IndStyle.image}>
+                                  <img src={ingredient.image} />
+                                </div>
+                                <div className={IndStyle.price}>
+                                 {ingredient.price}
                                 </div>  
                                 <div className={IndStyle.ingredients_item}> 
                                     {ingredient.name}
                                 </div>   
-                                <div>
-                                 {ingredient.price}
-                                </div>    
+                                    
                                     
                             </div>
                             );
@@ -271,18 +273,17 @@ export default class BurgerIngredients extends React.Component
                         
                             if(ingredient.type === "sauce") {
                                 return (
-                                    <div >
-                                        <div> 
+                                    <div className={IndStyle.bgmain}>
+                                        <div className={IndStyle.image}> 
                                             <img src={ingredient.image} />
+                                        </div> 
+                                        <div  className={IndStyle.price}>
+                                         {ingredient.price}
                                         </div>  
                                         <div className={IndStyle.ingredients_item}> 
                                             {ingredient.name}
                                         </div>   
-                                        <div>
-                                         {ingredient.price}
-                                        </div>    
-                                            
-                                    </div>
+                                     </div>
                                     );
                         }})}
                     </li>
@@ -292,17 +293,17 @@ export default class BurgerIngredients extends React.Component
                         
                             if(ingredient.type === "main") {
                                 return (
-                                    <div >
-                                        <div> 
+                                    <div className={IndStyle.bgmain}>
+                                        <div className={IndStyle.image}> 
                                             <img src={ingredient.image} />
                                         </div>  
+                                        <div className={IndStyle.price}>
+                                        {ingredient.price}
+                                        </div>    
                                         <div className={IndStyle.ingredients_item}> 
                                             {ingredient.name}
                                         </div>   
-                                        <div>
-                                         {ingredient.price}
-                                        </div>    
-                                            
+                                        
                                     </div>
                                     );
                         }})}

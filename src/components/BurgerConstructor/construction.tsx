@@ -1,6 +1,6 @@
 import React from 'react';
 import ConstStyles from './BurgerConstructor.module.css';
-import  {CurrencyIcon}  from '@ya.praktikum/react-developer-burger-ui-components';
+import  {CurrencyIcon,DeleteIcon}  from '@ya.praktikum/react-developer-burger-ui-components';
 
 
 export default class Constuctor extends React.Component {
@@ -219,25 +219,31 @@ export default class Constuctor extends React.Component {
 
     render(){
         return (
+            <>
             <div className={ConstStyles.main}> 
-            <div className={ConstStyles.container_block }>
+                <div className={ConstStyles.container_block }>
+                <div className={ConstStyles.bugrers_block_disabled}>
+                    <img  height={40} className='{ConstStyles.burger-image}' src='https://code.s3.yandex.net/react/code/bun-02-mobile.png' />
+                    <div style={{width: '254px', paddingRight: '20px'}} className="{ConstStyles.burgers_name} ">Краторная булка N-200i (верх)</div>
+                    <span  style={{width: '54px', paddingRight: '9px', textAlign: 'right', fontSize: '24px'}}>1255</span>
+                    <span style={{paddingRight: '24px'}}><CurrencyIcon type="primary"/></span>
+                    <DeleteIcon type="primary" />
+                </div>
+                    {this.state.ingredients.map((ingredient)=>{
+                        
+                        if(ingredient.type != "bun") {
+                            return (
+                        <div className={ConstStyles.bugrers_block}>
+                        <img  height={40} className='{ConstStyles.burger-image}' src={ingredient.image_mobile} />
+                        <div style={{width: '254px', paddingRight: '20px'}} className="{ConstStyles.burgers_name} ">{ingredient.name}</div>
+                        <span  style={{width: '54px', paddingRight: '9px', textAlign: 'right', fontSize: '24px'}}>{ingredient.price}</span>
+                        <span style={{paddingRight: '24px'}}><CurrencyIcon type="primary"/></span>
+                        <DeleteIcon type="primary" />
+                    </div> 
+                                );
+                    }})}    
               
-               {this.state.ingredients.map((ingredient, index)=>(
-                 
-                    <div className={ConstStyles.bugrers_block}>
-                      <div className={ConstStyles.element}>
-                        <img className='{ConstStyles.burger-image}' src={ingredient.image_mobile} />
-                      
-                        <span className="{ConstStyles.burgers_name} ">{ingredient.name}</span>
-                        <span>{ingredient.price}</span>
-                        <span><CurrencyIcon type="primary"/></span>
-                     </div>   
-                     
-                    
-                   </div> 
-                    
-                ))} 
-            </div></div>
+            </div></div></>
         );
     }
 }

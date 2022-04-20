@@ -1,5 +1,13 @@
+
+@font-face {
+    font-family: 'JetBrainsMono-Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url("../../fonts/JetBrainsMono-Bold.woff2") format("woff");
+  }  
+  
 .main {
-    left: 50%;
+    
     position: absolute;
 }
 
@@ -9,14 +17,14 @@
     align-items: flex-start;
     padding: 0px;
     overflow-y: scroll;
-    height: 650px;
-    position: relative;
-    top: 100px;
+    height: 500px;
+    position: absolute;
+    top: 88px;
+    left: 940px;
     
 }
-
 .container_block::-webkit-scrollbar {
-	width: 10px;
+	width: 8px;
 	height: 8px;
 	background-color: #2f2f37;
 }
@@ -25,68 +33,66 @@
 	
 	background-color: #8585AD
 }
-    
+ 
 .bugrers_block {
-    font-family: 'JetBrainsMono-Bold', Arial, sans-serif;
-    font-size: 20px;
-    display: inline-block;
+    display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    
     align-items: center;
     padding: 16px 32px 16px 24px;
-    width: 540px;
-    height: 57px;
-    left: 32px;
-    margin-top: 16px;
     background: #1C1C21;
-    border-radius: 80px;
-    
-    
-}
-
-.bugrers_block_disabled {
-    display: inline-block;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 16px 32px 16px 24px;
-    width: 536px;
+    border-radius: 88px;
+    height: 80px;
     left: 32px;
     right: 0px;
     margin-top: 16px;
-    background: #1C1C21;
-    border-radius: 88px 88px 40px 40px;
+    width:500px;
 }
 
 .element{
+    
     display: flex;
+    justify-content: right;
     align-items: center;
     width:480px;
     align-items: center;
 }
 .burger-image {
-   
+    position: abcolute;
     Width: 40px;
     Height: 40px;
-   
 }
-
 .burgers_name{
-    margin-right: 20px;
-    display: inline-flex;
+    position: static;
+    width: 254px;
+    height: 48px;
+    left: 124px;
+    top: calc(50% - 48px/2);
+    font-family: 'JetBrains Mono';
+    font-size: 16px;
+    display: flex;
     align-items: center;
-    line-height: 24px;
-    text-align: left;
-    width: 40px;
+    color: #F2F2F3;
+    flex: none;
+    order: 1;
+    flex-grow: 1;
+    margin: 0px 20px;
+
+}
+.bugrers_block_disabled {
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+    padding: 16px 32px 16px 24px;
+    background: #1C1C21;
+    height: 80px;
+    left: 32px;
+    right: 0px;
+    margin-top: 16px;
+    width:500px;
+    border-radius: 88px 88px 40px 40px;
 }
 
-.burgers_price{
-    font-family: 'JetBrains Mono', Arial, sans-serif;
-    display: inline-flex;
-    align-items: center;
-    padding-right: 9px;
-    flex-grow: 1;
-    margin-right: 20px;
-    text-align: right;
-}
+
 

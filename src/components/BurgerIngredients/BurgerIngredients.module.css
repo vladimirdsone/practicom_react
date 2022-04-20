@@ -1,41 +1,49 @@
+
+@font-face {
+    font-family: 'JetBrainsMono-Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url("../../fonts/JetBrainsMono-Bold.woff2") format("woff");
+  }  
+  
 .tabs {
     display: flex;
     
   
 }
 
-.li {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: start;
-    margin-left: 16px;
-
-}
 
 .bgmain {
+    display: inline-block;
+    width: 300px;
+    height: 180px;;
     flex-direction: column;
-    display: flex;
+    position: static;
 }
 
 .main_block {
-    display: flex;
-    position: absolute;
-    left: 200px;
     
+    width: 670px;
+    height: 912px;
+    left: 240px;
+    top: 88px;
+    position: absolute;
    }
 
 .ingredients_block {
-    position: absolute;
-    height: 600px; 
-    width: 560px;
+    height: 520px;
+    
     overflow-y: scroll;
-    font-family: 'JetBrains Mono', Arial, sans-serif;
+    
+    
 }
-
+.ingredients_item {
+    width: 320px;
+    text-align: center;
+    top: 8px;
+}
 .ingredients_block::-webkit-scrollbar {
-	width: 10px;
+	width: 8px;
 	height: 8px;
 	background-color: #2f2f37;
 }
@@ -46,3 +54,13 @@
 
 }
 
+.price {
+    font-size: 24px;
+    width: 320px;
+    text-align: center;
+}
+
+.image {
+    width: 320px;
+    text-align: center;
+}
