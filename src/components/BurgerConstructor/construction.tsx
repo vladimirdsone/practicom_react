@@ -1,6 +1,6 @@
 import React from 'react';
 import ConstStyles from './BurgerConstructor.module.css';
-import  {Button, CurrencyIcon,DeleteIcon,LockIcon, DragIcon}  from '@ya.praktikum/react-developer-burger-ui-components';
+import  {CurrencyIcon,DeleteIcon, LockIcon, DragIcon, Button}  from '@ya.praktikum/react-developer-burger-ui-components';
 
 
 export default class Constuctor extends React.Component {
@@ -261,8 +261,8 @@ export default class Constuctor extends React.Component {
                 <div className={ConstStyles.bottom_price}>
                         <span  style={{paddingRight: '9px', fontSize: '40px'}}>1255</span>
                         <span style={{paddingRight: '24px'}}><CurrencyIcon type="primary"/></span>
-                        <Button type="primary" size="large" >Оформить заказ</Button>
-                            
+                        {/* <Button type="primary" size="large" >Оформить заказ</Button>*/}
+                        {/* кнопка почему-то не работает*/}
                 </div>
                 
              </div>
