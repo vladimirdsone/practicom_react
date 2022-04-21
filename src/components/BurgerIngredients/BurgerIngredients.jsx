@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import  {Tab, Counter}  from '@ya.praktikum/react-developer-burger-ui-components';
+import  {Tab, Counter, CurrencyIcon}  from '@ya.praktikum/react-developer-burger-ui-components';
 import IndStyle from './BurgerIngredients.module.css';
 
 
@@ -255,7 +255,7 @@ export default class BurgerIngredients extends React.Component
                                   <img src={ingredient.image} />
                                 </div>
                                 <div className={IndStyle.price}>
-                                 {ingredient.price}
+                                 {ingredient.price}<CurrencyIcon type="primary"/>
                                 </div>  
                                 <div className={IndStyle.ingredients_item}> 
                                     {ingredient.name}
@@ -277,8 +277,8 @@ export default class BurgerIngredients extends React.Component
                                         <div className={IndStyle.image}> 
                                             <img src={ingredient.image} />
                                         </div> 
-                                        <div  className={IndStyle.price}>
-                                         {ingredient.price}
+                                        <div  className={IndStyle.price} >
+                                         {ingredient.price}<CurrencyIcon type="primary"/>
                                         </div>  
                                         <div className={IndStyle.ingredients_item}> 
                                             {ingredient.name}
@@ -298,7 +298,7 @@ export default class BurgerIngredients extends React.Component
                                             <img src={ingredient.image} />
                                         </div>  
                                         <div className={IndStyle.price}>
-                                        {ingredient.price}
+                                        {ingredient.price}<CurrencyIcon type="primary"/>
                                         </div>    
                                         <div className={IndStyle.ingredients_item}> 
                                             {ingredient.name}

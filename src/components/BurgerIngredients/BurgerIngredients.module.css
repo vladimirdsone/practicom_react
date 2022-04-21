@@ -14,8 +14,9 @@
 
 
 .bgmain {
+    
     display: inline-block;
-    width: 300px;
+    max-width: 300px;
     height: 180px;;
     flex-direction: column;
     position: static;
@@ -23,9 +24,9 @@
 
 .main_block {
     
-    width: 670px;
+    max-width: 670px;
     height: 912px;
-    left: 240px;
+    left: 17%;
     top: 88px;
     position: absolute;
    }
@@ -38,7 +39,7 @@
     
 }
 .ingredients_item {
-    width: 320px;
+    max-width: 320px;
     text-align: center;
     top: 8px;
 }
@@ -56,7 +57,7 @@
 
 .price {
     font-size: 24px;
-    width: 320px;
+    max-width: 320px;
     text-align: center;
 }
 

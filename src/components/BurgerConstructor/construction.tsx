@@ -1,6 +1,6 @@
 import React from 'react';
 import ConstStyles from './BurgerConstructor.module.css';
-import  {CurrencyIcon,DeleteIcon}  from '@ya.praktikum/react-developer-burger-ui-components';
+import  {Button, CurrencyIcon,DeleteIcon,LockIcon, DragIcon}  from '@ya.praktikum/react-developer-burger-ui-components';
 
 
 export default class Constuctor extends React.Component {
@@ -219,31 +219,53 @@ export default class Constuctor extends React.Component {
 
     render(){
         return (
-            <>
-            <div className={ConstStyles.main}> 
-                <div className={ConstStyles.container_block }>
-                <div className={ConstStyles.bugrers_block_disabled}>
-                    <img  height={40} className='{ConstStyles.burger-image}' src='https://code.s3.yandex.net/react/code/bun-02-mobile.png' />
-                    <div style={{width: '254px', paddingRight: '20px'}} className="{ConstStyles.burgers_name} ">Краторная булка N-200i (верх)</div>
-                    <span  style={{width: '54px', paddingRight: '9px', textAlign: 'right', fontSize: '24px'}}>1255</span>
-                    <span style={{paddingRight: '24px'}}><CurrencyIcon type="primary"/></span>
-                    <DeleteIcon type="primary" />
+            
+            <div className={ConstStyles.main}>
+                <div className={ConstStyles.bugrers_container_block_disabled}>
+                    <div className={ConstStyles.bugrers_block_disabled}>
+                        <img  height={40} className='{ConstStyles.burger-image}' src='https://code.s3.yandex.net/react/code/bun-02-mobile.png' />
+                            <span style={{width: '254px', paddingRight: '20px'}} className="{ConstStyles.burgers_name} ">Краторная булка N-200i (верх)</span>
+                            <span  style={{width: '54px', paddingRight: '9px', textAlign: 'right'}} className="text text_type_main-medium">1255</span>
+                            <span style={{paddingRight: '24px'}}><CurrencyIcon type="primary"/></span>
+                        <LockIcon type="primary" />
+                    
+                    </div>
                 </div>
+                <div className={ConstStyles.container_block }> 
                     {this.state.ingredients.map((ingredient)=>{
                         
-                        if(ingredient.type != "bun") {
-                            return (
-                        <div className={ConstStyles.bugrers_block}>
+                    if(ingredient.type != "bun") {
+                        return (
+                            
+                    <div className={ConstStyles.bugrers_block}><DragIcon type="primary" />
                         <img  height={40} className='{ConstStyles.burger-image}' src={ingredient.image_mobile} />
-                        <div style={{width: '254px', paddingRight: '20px'}} className="{ConstStyles.burgers_name} ">{ingredient.name}</div>
-                        <span  style={{width: '54px', paddingRight: '9px', textAlign: 'right', fontSize: '24px'}}>{ingredient.price}</span>
-                        <span style={{paddingRight: '24px'}}><CurrencyIcon type="primary"/></span>
+                            <span style={{width: '254px', paddingRight: '20px'}} className="{ConstStyles.burgers_name} ">{ingredient.name}</span>
+                            <span  style={{width: '54px', paddingRight: '9px', textAlign: 'right', fontSize: '24px'}}>{ingredient.price}</span>
+                            <span style={{paddingRight: '24px'}}><CurrencyIcon type="primary"/></span>
                         <DeleteIcon type="primary" />
                     </div> 
-                                );
-                    }})}    
-              
-            </div></div></>
-        );
+                      
+                        );
+                    }})}     
+                </div>
+                <div className={ConstStyles.bugrers_container_block_disabled_bottom}>
+                    <div className={ConstStyles.bugrers_block_disabled_bottom}>
+                        <img  height={40} className='{ConstStyles.burger-image}' src='https://code.s3.yandex.net/react/code/bun-02-mobile.png' />
+                            <span style={{width: '254px', paddingRight: '20px'}} className="{ConstStyles.burgers_name} ">Краторная булка N-200i (низ)</span>
+                            <span  style={{width: '54px', paddingRight: '9px', textAlign: 'right', fontSize: '24px'}}>1255</span>
+                            <span style={{paddingRight: '24px'}}><CurrencyIcon type="primary"/></span>
+                        <LockIcon type="primary" />
+                        
+                    </div>
+                </div>
+                <div className={ConstStyles.bottom_price}>
+                        <span  style={{paddingRight: '9px', fontSize: '40px'}}>1255</span>
+                        <span style={{paddingRight: '24px'}}><CurrencyIcon type="primary"/></span>
+                        <Button type="primary" size="large" >Оформить заказ</Button>
+                            
+                </div>
+                
+             </div>
+         );
     }
 }

@@ -13,6 +13,7 @@
     font-family: 'JetBrainsMono-Bold';
     background: #1C1C21;
     width: 100%;
+    overflow: hidden;
     height: 88px;
     gap: 5%;
     justify-content: center;
