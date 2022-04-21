@@ -17,7 +17,7 @@
     align-items: flex-start;
     padding: 0px;
     overflow-y: scroll;
-    height: 500px;
+    height: 450px;
     position: absolute;
     top: 184px;
     
@@ -98,7 +98,7 @@
 .bugrers_container_block_disabled_bottom
  {
     composes:bugrers_container_block_disabled;
-    top: 680px;
+    top: 640px;
 }
 
 .bugrers_block_disabled_bottom {
@@ -110,5 +110,5 @@
 
 .bottom_price {
     margin-left: 200px;  
-    margin-top: 815px;
+    margin-top: 770px;
 }
