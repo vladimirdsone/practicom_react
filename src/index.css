@@ -1,5 +1,6 @@
 body {
   width: 100%;
+  height: auto;
   margin: 0;
   font-family: 'JetBrainsMono-Bold', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

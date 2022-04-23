@@ -46,11 +46,3 @@
 
 }
 
-
-.item h3 {
-  white-space: nowrap;
-}
-
-.item:disabled {
-  color: #8585AD;
-}

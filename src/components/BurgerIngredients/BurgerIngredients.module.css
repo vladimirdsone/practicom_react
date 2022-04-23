@@ -8,10 +8,31 @@
   
 .tabs {
     display: flex;
-    
   
 }
 
+.li {
+    list-style-type: none;
+}
+
+.main_block {
+    overflow: hidden;
+    max-width: 670px;
+    
+    display: block;
+    left: 6%;
+    top: 40px;
+    position: relative;
+    
+   
+   }
+
+   .ingredients_block {
+    height:570px;
+    overflow-y: scroll;
+    
+    
+}
 
 .bgmain {
     
@@ -19,25 +40,11 @@
     max-width: 300px;
     height: 180px;;
     flex-direction: column;
-    position: static;
-}
-
-.main_block {
-    
-    max-width: 670px;
-    height: 912px;
-    left: 17%;
-    top: 88px;
-    position: absolute;
-   }
-
-.ingredients_block {
-    height: 520px;
-    
-    overflow-y: scroll;
-    
     
 }
+
+
+
 .ingredients_item {
     max-width: 320px;
     text-align: center;
