@@ -1,12 +1,12 @@
 import React from 'react';
 import ConstStyles from './BurgerConstructor.module.css';
-import  {CurrencyIcon,DeleteIcon, LockIcon, DragIcon, Button, ConstructorElement}  from '@ya.praktikum/react-developer-burger-ui-components';
+import  {CurrencyIcon, DragIcon, Button, ConstructorElement}  from '@ya.praktikum/react-developer-burger-ui-components';
 import {products} from "../../utils/mock-order";
 
 const BurgerConstructor = function()   {
     
     const Main = products.map(function(items, index){
-        { if(items.type != 'bun')   {
+         if(items.type !== 'bun')   {
             return (
                 <p key = {items._id} >
                        <DragIcon type="primary" />
@@ -15,10 +15,10 @@ const BurgerConstructor = function()   {
                         price={items.price}
                         thumbnail={items.image_mobile}/>
                  </p>
-             )}};
+             )}; return false;
     }) 
     const BunBottom = products.map(function(items, index){
-        { if(items._id === '60666c42cc7b410027a1a9b1')   {
+         if(items._id === '60666c42cc7b410027a1a9b1')   {
             return (
                   <div key = {items._id}>
                   
@@ -32,11 +32,11 @@ const BurgerConstructor = function()   {
                     
                    </div>    
                
-            )}};
+            ) }; return false;
     }) 
 
     const BunTop = products.map(function(items, index){
-        { if(items._id === '60666c42cc7b410027a1a9b1')   {
+         if(items._id === '60666c42cc7b410027a1a9b1')   {
             return (
                   <div key = {items._id}>
                   
@@ -49,8 +49,7 @@ const BurgerConstructor = function()   {
                     />
                     
                    </div>    
-               
-            )}};
+            )}; return false;
     }) 
     return (
     <div>
