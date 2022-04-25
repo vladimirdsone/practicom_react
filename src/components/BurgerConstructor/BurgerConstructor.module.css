@@ -38,12 +38,13 @@
     position: absolute;
     left: 250px;
     width: 576px;
-    top: 720px;
+    top: 700px;
+ 
 }
 
 .button span{
   padding-top: 10px;
-   padding-right: 5px;
+padding-right: 5px;
 
    
 }
