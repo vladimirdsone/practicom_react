@@ -1,16 +1,24 @@
 import React from 'react';
 import BurgerConstructor from '../BurgerConstructor/BurgerConstructor';
 import Header from '../AppHeader/Header';
-import LabTabs from '../BurgerIngredients/BurgerIngredients';
 import BurgerIngredients from '../BurgerIngredients/BurgerIngredients';
-import {ConstructorElement}  from '@ya.praktikum/react-developer-burger-ui-components'; 
+import AppStyle from './app.module.css';
 
 function App() {
   return (
     <>
+    
+  
     <Header/>
-    <BurgerIngredients/>
-    <BurgerConstructor />
+      <div className={AppStyle.container}>
+        <div className={AppStyle.main_block}>
+          <BurgerIngredients/>
+        </div>
+        
+        <div className={AppStyle.main}>
+          <BurgerConstructor />
+        </div>
+      </div>
     </>
   )
 }

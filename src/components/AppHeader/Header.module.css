@@ -12,10 +12,11 @@
 .header {
     font-family: 'JetBrainsMono-Bold';
     background: #1C1C21;
-    width: 100%;
+    width: auto;
     overflow: hidden;
     height: 88px;
     gap: 5%;
+    
     justify-content: center;
     align-items: center;
     position: relative;

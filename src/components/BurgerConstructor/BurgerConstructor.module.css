@@ -5,13 +5,13 @@
     font-weight: 700;
     src: url("../../fonts/JetBrainsMono-Bold.woff2") format("woff");
   }  
-  
+
 .main {
     position: absolute;
     height: 388px;
-    left: 810px;
+    
     width: 576px;
-    top: 308px;
+    top: 190px;
     overflow-y: scroll;
     justify-content: center;
     
@@ -20,28 +20,25 @@
 
 .maintop {
     position: absolute;
-    
-    left: 830px;
+    margin-left: 20px;
     width: 576px;
-    top: 228px;
+    top: 108px;
     
 }
 
 .mainbottom {
     position: absolute;
-    
-    left: 830px;
+    margin-left: 20px;
     width: 576px;
-    top: 688px;
+    top: 590px;
     
 }
 
 .button {
     position: absolute;
-    
-    left: 1040px;
+    left: 250px;
     width: 576px;
-    top: 800px;
+    top: 720px;
 }
 
 .button span{
@@ -64,3 +61,7 @@
 	background-color: #8585AD
 }
  
+.list {    
+    margin-top: 10px; 
+    margin-bottom: 10px;    
+}

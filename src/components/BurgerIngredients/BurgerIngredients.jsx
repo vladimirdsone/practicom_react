@@ -79,7 +79,7 @@ const BurgerIngredients = function() {
   
         
     return (
-        <div className={IndStyle.main_block}>
+        <>
             <div className={IndStyle.heading}>
                 <h1>Соберите бургер</h1>
                 <LabTabs />
@@ -98,7 +98,7 @@ const BurgerIngredients = function() {
                     </li>
                 </ul>
             </div>
-        </div>
+        </>
      );
 }
 

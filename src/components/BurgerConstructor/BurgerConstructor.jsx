@@ -8,14 +8,17 @@ const BurgerConstructor = function()   {
     const Main = products.map(function(items, index){
          if(items.type !== 'bun')   {
             return (
-                <p key = {items._id} >
-                       <DragIcon type="primary" />
-                       <ConstructorElement
-                        text={items.name}
-                        price={items.price}
-                        thumbnail={items.image_mobile}/>
-                 </p>
-             )}; return false;
+               
+                <div className={ConstStyles.list} key = {items._id}>
+                    <DragIcon type="primary" />
+                    <ConstructorElement
+                    text={items.name}
+                    price={items.price}
+                    thumbnail={items.image_mobile}/>
+                </div>
+             
+              
+             )}; return false;  
     }) 
     const BunBottom = products.map(function(items, index){
          if(items._id === '60666c42cc7b410027a1a9b1')   {
@@ -52,12 +55,12 @@ const BurgerConstructor = function()   {
             )}; return false;
     }) 
     return (
-    <div>
+    <>
         <div className={ConstStyles.maintop}>
            {BunTop}
         </div>  
         <div  className={ConstStyles.main} >
-            {Main}
+           {Main}
         </div>
         <div className={ConstStyles.mainbottom} >
             {BunBottom}
@@ -67,7 +70,7 @@ const BurgerConstructor = function()   {
         <span className={ConstStyles.price}><CurrencyIcon type="primary"/></span>
             <Button type="primary" size="large" >Оформить заказ</Button>
         </div>
-    </div>
+    </>
      );
 }
 
