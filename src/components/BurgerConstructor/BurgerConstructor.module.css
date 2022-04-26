@@ -1,76 +1,68 @@
-.container_block{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
+
+@font-face {
+    font-family: 'JetBrainsMono-Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url("../../fonts/JetBrainsMono-Bold.woff2") format("woff");
+  }  
+
+.main {
     position: absolute;
-    width: 536px;
-    height: 350px;
-    left: 60%;
-    top: 100px;
-    position: relative;
+    height: 388px;
+    
+    width: 576px;
+    top: 190px;
+    overflow-y: scroll;
+    justify-content: center;
     
     
-    }
+}
 
-    
-.bugrers_block {
-    font-family: 'JetBrains Mono', Arial, sans-serif;
-    font-size: 20px;
-    display: inline-block;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 16px 32px 16px 24px;
-    width: 536px;
-    left: 32px;
-    right: 0px;
-    margin-top: 16px;
-    background: #1C1C21;
-    border-radius: 80px;
+.maintop {
+    position: absolute;
+    margin-left: 20px;
+    width: 576px;
+    top: 108px;
     
 }
 
-.bugrers_block_disabled {
-    display: inline-block;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 16px 32px 16px 24px;
-    width: 536px;
-    left: 32px;
-    right: 0px;
-    margin-top: 16px;
-    background: #1C1C21;
-    border-radius: 88px 88px 40px 40px;
+.mainbottom {
+    position: absolute;
+    margin-left: 20px;
+    width: 576px;
+    top: 590px;
+    
 }
 
-.element{
-    display: flex;
-    align-items: center;
-}
-.burger-image {
-    margin-right: 20px;
-    Width: 80px;
-    Height: 40px;
-
+.button {
+    position: absolute;
+    left: 250px;
+    width: 576px;
+    top: 700px;
+ 
 }
 
-.burgers_name{
-    margin-right: 20px;
-    display: inline-flex;
-    align-items: center;
-    line-height: 24px;
-    text-align: left;
+.button span{
+  padding-top: 10px;
+padding-right: 5px;
+
+   
+}
+.price{
+    padding-right: 40px;
+}
+.main::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+	background-color: #2f2f37;
 }
 
-.burgers_price{
-    font-family: 'JetBrains Mono', Arial, sans-serif;
-    display: inline-flex;
-    align-items: center;
-    padding-right: 9px;
-    flex-grow: 1;
-    margin-right: 20px;
-    text-align: right;
+.main::-webkit-scrollbar-thumb {
+	
+	background-color: #8585AD
 }
-
+ 
+.list {    
+    margin-top: 10px; 
+    margin-bottom: 10px;    
+}

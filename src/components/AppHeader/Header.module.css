@@ -1,12 +1,22 @@
+@font-face {
+  font-family: 'JetBrainsMono-Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../fonts/JetBrainsMono-Bold.woff2") format("woff");
+}  
+
 .logo {
     margin-right: 190px;
   }
 
 .header {
+    font-family: 'JetBrainsMono-Bold';
     background: #1C1C21;
-    width: 1920px;
+    width: auto;
+    overflow: hidden;
     height: 88px;
     gap: 5%;
+    
     justify-content: center;
     align-items: center;
     position: relative;
@@ -37,11 +47,3 @@
 
 }
 
-
-.item h3 {
-  white-space: nowrap;
-}
-
-.item:disabled {
-  color: #8585AD;
-}
