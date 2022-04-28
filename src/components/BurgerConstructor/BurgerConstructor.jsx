@@ -45,14 +45,12 @@ function BurgerConstructor ({BurgersIng})   {
         <div className={ConstStyles.main} >
 
             {BurgersIng.map((prod) => { if(prod.type !== 'bun')   {
-                return  <div  className={ConstStyles.list}>
+                return  (<div  className={ConstStyles.list}>
                             <Product key={prod._id} productDetails={prod} /> 
-                        </div>
+                        </div>)
                     } return false;  
             })}
-                
-                
-            </div>
+          </div>
             <div className={ConstStyles.mainbottom} >
                 <ConstructorElement type="bottom"
                     isLocked={true}

@@ -12,20 +12,25 @@
   
 }
 
-.heading h1 { 
+.title h1 { 
     text-align: left;
 
 }
 
-.heading ul { 
+.title ul { 
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+
+}
+.title li { 
     list-style-type: none; /* Remove bullets */
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margins */
 
 }
 
-
-.heading h2 { 
+.title h2 { 
     text-align: left;
 
 }
