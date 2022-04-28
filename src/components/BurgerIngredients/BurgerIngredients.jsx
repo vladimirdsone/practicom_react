@@ -23,7 +23,7 @@ function LabTabs() {
 function Product({productDetails}) {
     return (
         <>
-        <Counter count={21} size="small" />
+        
         <div className={IndStyle.bgmain}>
             <div  className={IndStyle.image}>
                 <img src={productDetails.image} />
@@ -48,7 +48,7 @@ function BurgerIngredients({BurgersIng}) {
     
     return (
         <>
-        <div className={IndStyle.heading}>
+        <div className={IndStyle.title}>
             <h1>Соберите бургер</h1>
             </div>
         <LabTabs/>
@@ -64,6 +64,15 @@ function BurgerIngredients({BurgersIng}) {
             <h2 id="sauce">Соусы</h2>
             <li>
                 {BurgersIng.map((prod) => { if(prod.type === 'sauce')   {
+                    return (
+                        <Product  productDetails={prod} /> )
+                    }  return false;          
+                })}
+            </li>
+            
+            <h2 id="main">Ингридиенты</h2>
+            <li>
+                {BurgersIng.map((prod) => { if(prod.type === 'main')   {
                     return (
                         <Product  productDetails={prod} /> )
                     }  return false;          
