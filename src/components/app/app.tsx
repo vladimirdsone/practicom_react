@@ -31,7 +31,7 @@ function App() {
     <Header/>
       <div className={AppStyle.container}>
         <div className={AppStyle.main_block}>
-          <BurgerIngredients/>
+          <BurgerIngredients BurgersIng={api}/>
         </div>
         
         <div className={AppStyle.main}>

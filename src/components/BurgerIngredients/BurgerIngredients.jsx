@@ -1,8 +1,9 @@
-import React from 'react';
-import { useState } from 'react';
+
 import  {Tab, Counter, CurrencyIcon}  from '@ya.praktikum/react-developer-burger-ui-components';
 import IndStyle from './BurgerIngredients.module.css';
-import {products} from "../../utils/mock-order"
+import ProductPropTypes from '../../utils/types';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 function LabTabs() {
     const [current, setCurrent] = useState('bun');
@@ -19,89 +20,65 @@ function LabTabs() {
   );
 }
 
-const BurgerIngredients = function() {
-
-    const bun = products.map(function(item, index){
-        if(item.type === 'bun')   {
-        return (
-       
-        <div key = {item._id} className={IndStyle.bgmain}>
-            <div  className={IndStyle.image}>
-                <img src={item.image} />
-            </div>
-            <div className={IndStyle.price}>
-                {item.price}<CurrencyIcon type="primary"/>
-            </div>  
-            <div className={IndStyle.ingredients_item}> 
-                {item.name}
-            </div>   
-        </div>
-         
-        )}
-    })
-
-    const sauce = products.map(function(item, index){
-        if(item.type === 'sauce')   {
-        return (
-       
-        <div key = {item._id} className={IndStyle.bgmain}>
-            <div  className={IndStyle.image}>
-                <img src={item.image} />
-            </div>
-            <div className={IndStyle.price}>
-                {item.price}<CurrencyIcon type="primary"/>
-            </div>  
-            <div className={IndStyle.ingredients_item}> 
-                {item.name}
-            </div>   
-        </div>
-         
-        )}
-    })
-    const main = products.map(function(item, index){
-        if(item.type === 'main')   {
-        return (
-       
-        <div key = {item._id} className={IndStyle.bgmain}>
-            <div  className={IndStyle.image}>
-                <img src={item.image} />
-            </div>
-            <div className={IndStyle.price}>
-                {item.price}<CurrencyIcon type="primary"/>
-            </div>  
-            <div className={IndStyle.ingredients_item}> 
-                {item.name}
-            </div>   
-        </div>
-         
-        )}
-    })
-  
-        
+function Product({productDetails}) {
     return (
         <>
-            <div className={IndStyle.heading}>
-                <h1>Соберите бургер</h1>
-                <LabTabs />
-                <ul className={IndStyle.ingredients_block}>
-                    <li>
-                        <h2 id="bun">Булки</h2>
-                        {bun}
-                    </li>
-                    <li>
-                        <h2 id="sauce">Соусы</h2>
-                        {sauce}
-                    </li>
-                    <li>
-                        <h2 id="main">Начинки</h2>
-                        {main}
-                    </li>
-                </ul>
+        <Counter count={21} size="small" />
+        <div className={IndStyle.bgmain}>
+            <div  className={IndStyle.image}>
+                <img src={productDetails.image} />
             </div>
+            <div className={IndStyle.price}>
+                {productDetails.price}<CurrencyIcon type="primary"/>
+            </div>  
+            <div className={IndStyle.ingredients_item}> 
+                {productDetails.name}
+            </div>   
+        </div>  
         </>
-     );
-}
+    
+    );
+  }
+  Product.propTypes = {
+    ProductDetails: ProductPropTypes.isRequired,
+   
+  }
 
+function BurgerIngredients({BurgersIng}) {
+    
+    return (
+        <>
+        <div className={IndStyle.heading}>
+            <h1>Соберите бургер</h1>
+            </div>
+        <LabTabs/>
+        <ul className={IndStyle.ingredients_block}> 
+        <h2 id="bun">Булки</h2>
+            <li>
+                {BurgersIng.map((prod) => { if(prod.type === 'bun')   {
+                    return (
+                        <Product  productDetails={prod} /> )
+                    }  return false;          
+                })}
+            </li>
+            <h2 id="sauce">Соусы</h2>
+            <li>
+                {BurgersIng.map((prod) => { if(prod.type === 'sauce')   {
+                    return (
+                        <Product  productDetails={prod} /> )
+                    }  return false;          
+                })}
+            </li>  
+            
+            </ul>
+    </>
+            ) 
+
+
+    BurgerIngredients.propTypes = {
+    BurgersIng: PropTypes.arrayOf(ProductPropTypes).isRequired,
+    }
+}
 
 export default  BurgerIngredients
  

@@ -1,8 +1,7 @@
-
+import React, { useState } from 'react';
 import ConstStyles from './BurgerConstructor.module.css';
 import  {CurrencyIcon, DragIcon, Button, ConstructorElement}  from '@ya.praktikum/react-developer-burger-ui-components';
 import productPropTypes from '../../utils/types';
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../modalOverlay/ModalPortal';
 import Child from './ModalOverlay';
@@ -10,9 +9,8 @@ import Child from './ModalOverlay';
 function Product({productDetails, type, isLocked, name}) {
     return (
         <>  
-            
-            <p className={ConstStyles.lefticon}><DragIcon type="primary" /></p>
-            <ConstructorElement price={productDetails.price} text={name || productDetails.name} thumbnail={productDetails.image_mobile} />
+        <p className={ConstStyles.lefticon}><DragIcon type="primary" /></p>
+        <ConstructorElement price={productDetails.price} text={name || productDetails.name} thumbnail={productDetails.image_mobile} />
         </>
     
     );
