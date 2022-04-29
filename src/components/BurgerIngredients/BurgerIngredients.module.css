@@ -22,7 +22,7 @@
     margin: 0; /* Remove margins */
 
 }
-.title li { 
+.li { 
     list-style-type: none; /* Remove bullets */
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margins */
@@ -37,10 +37,11 @@
 .bgmain {
     display: flex;
     flex-direction: column;
-    width: 272px;
-    height: 208px;
+    width: 270px;
+    height: 210px;
     display: inline-block;
     position: relative;
+    cursor: pointer;
   }
 
 .burger_block {

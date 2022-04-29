@@ -1,6 +1,6 @@
 import React from 'react';
 import modal from './modal-constructor.module.css'
-import img from '../../images/done.png';
+import img from '../../images/check.png';
 
 function Modal({ isClosed }){
   function handleClick(e) { e.preventDefault();}

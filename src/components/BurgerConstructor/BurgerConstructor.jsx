@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import Modal from '../modal/modal-constuctor';
 import ModalOverlay from '../modal/ModalOverlay';
 
-function Product({productDetails, type, isLocked, name}) {
+function Product({productDetails, name}) {
     return (
         <>  
         <p className={ConstStyles.lefticon}><DragIcon type="primary" /></p>
@@ -41,9 +41,9 @@ function BurgerConstructor ({BurgersIng})   {
         </div>
         <div className={ConstStyles.main} >
 
-            {BurgersIng.map((prod) => { if(prod.type !== 'bun')   {
+            {BurgersIng.map((item) => { if(item.type !== 'bun')   {
                 return  (<div  className={ConstStyles.list}>
-                            <Product key={prod._id} productDetails={prod} /> 
+                            <Product key={item._id} productDetails={item} /> 
                         </div>)
                     } return false;  
             })}
@@ -57,14 +57,14 @@ function BurgerConstructor ({BurgersIng})   {
                 />
             </div>
             <div className={ConstStyles.button}>
-                <Button type="primary" size="large" onClick={openModal}>Оформить заказ</Button>
+            <span className="text text_type_main-large">1255</span>
+        <span className={ConstStyles.price}><CurrencyIcon type="primary"/></span><Button type="primary" size="large" onClick={openModal}>Оформить заказ</Button>
             </div>
              
-            {isOpened
-             && ( 
-             <div onClick={openModal}>
-                <Modal isClosed={isClosed}>
-                     <ModalOverlay isClosed={isClosed} />
+            {isOpened && ( 
+             <div >
+                <Modal isClosed={isClosed} onClick={openModal}>
+                    <ModalOverlay isClosed={isClosed} />
                 </Modal>
              </div> ) }
         </div>

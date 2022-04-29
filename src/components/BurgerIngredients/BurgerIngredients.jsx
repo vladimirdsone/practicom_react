@@ -1,7 +1,7 @@
 
 import  {Tab, Counter, CurrencyIcon}  from '@ya.praktikum/react-developer-burger-ui-components';
 import IndStyle from './BurgerIngredients.module.css';
-import ProductPropTypes from '../../utils/types';
+import productPropTypes from '../../utils/types';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../modal/modal-ingridients';
@@ -44,18 +44,18 @@ function Product({productDetails, isOpen}) {
     );
   }
 Product.propTypes = {
-    ProductDetails: ProductPropTypes.isRequired,
+    ProductDetails: productPropTypes.isRequired,
 }
 
 function BurgerIngredients({BurgersIng}) {
     const [productData, setProductData] = useState(null);
-    const [isOpened, setIsOpened] = useState(false);
-    
-    const isOpen = (prod) => {
-        if (!isOpened) { setProductData(prod); setIsOpened(true);}
+    const [Opened, setOpened] = useState(false);
+   
+    const isOpen = (item) => {
+        if (!Opened) { setProductData(item); setOpened(true);}
       }
-    const isClosed = (e) => { e.preventDefault(); if (isOpened) 
-        { setProductData(null); setIsOpened(false); }
+    const isClosed = (e) => { e.preventDefault(); if (Opened) 
+        { setProductData(null); setOpened(false); }
       }
     return (
         <>
@@ -64,39 +64,39 @@ function BurgerIngredients({BurgersIng}) {
         </div>
         <LabTabs/>
         <ul className={IndStyle.burger_block}> 
-        <h2 id="bun">Булки</h2>
-            <li>
-                {BurgersIng.map((prod) => { if(prod.type === 'bun')   {
+        
+            <li ><h2 id="bun">Булки</h2>
+                {BurgersIng.map((item) => { if(item.type === 'bun')   {
                     return (
-                        <Product productDetails={prod} isOpen={isOpen}/> )
+                        <Product key={item._id} productDetails={item} isOpen={isOpen}/> )
                     }  return false;          
                 })}
             </li>
             <h2 id="sauce">Соусы</h2>
             <li>
-                {BurgersIng.map((prod) => { if(prod.type === 'sauce')   {
+                {BurgersIng.map((item) => { if(item.type === 'sauce')   {
                     return (
-                        <Product  productDetails={prod} isOpen={isOpen}/> )
+                        <Product  productDetails={item} isOpen={isOpen}/> )
                     }  return false;          
                 })}
             </li>
             
             <h2 id="main">Ингридиенты</h2>
             <li>
-                {BurgersIng.map((prod) => { if(prod.type === 'main')   {
+                {BurgersIng.map((item) => { if(item.type === 'main')   {
                     return (
-                        <Product  productDetails={prod} isOpen={isOpen}/> )
+                        <Product  productDetails={item} isOpen={isOpen}/> )
                     }  return false;          
                 })}
             </li>  
             
         </ul>
-        {isOpened && productData && (
-        
-        <Modal isClosed={isClosed}>
-            <ModalOverlay data={productData} isClosed={isClosed} />
+        {Opened && productData && (
+        <div>
+        <Modal isClosed={isClosed} data={productData}>
+            <ModalOverlay  isClosed={isClosed} />
         </Modal>
-        
+        </div>
         )}
 
     </>
@@ -104,7 +104,7 @@ function BurgerIngredients({BurgersIng}) {
 
 
     BurgerIngredients.propTypes = {
-    BurgersIng: PropTypes.arrayOf(ProductPropTypes).isRequired,
+    BurgersIng: PropTypes.arrayOf(productPropTypes).isRequired,
     }
 }
 

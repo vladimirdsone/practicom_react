@@ -4,7 +4,7 @@ import productPropTypes from '../../utils/types';
 
 const modalRoot = document.getElementById('modal');
 const ModalOverlay = (props) => {
-  const { children, isClosed } = props;
+const { children, isClosed } = props;
 
   React.useEffect(() => {
     document.addEventListener('keydown', isClosed);
@@ -13,7 +13,7 @@ const ModalOverlay = (props) => {
 
   return ReactDOM.createPortal(
     <div className="ModalOverlay">
-      {children}
+     
     </div>,
     modalRoot,
   );
