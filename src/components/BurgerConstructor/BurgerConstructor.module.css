@@ -8,7 +8,7 @@
 
 .main {
     position: relative;
-    height: 488px;
+    height: 450px;
     width: 576px;
     top: 140px;
     overflow-y: scroll;
@@ -37,7 +37,7 @@
     position: absolute;
     margin-left: 20px;
     width: 576px;
-    top: 637px;
+    top: 590px;
     left: 15px;
 }
 
@@ -45,14 +45,12 @@
     position: absolute;
     left: 350px;
     width: 576px;
-    top: 740px;
+    top: 680px;
 }
 
 .button span{
     padding-top: 10px;
     padding-right: 5px;
-
-   
 }
 .price{
     padding-right: 40px;

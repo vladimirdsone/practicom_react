@@ -3,8 +3,8 @@ import ConstStyles from './BurgerConstructor.module.css';
 import  {CurrencyIcon, DragIcon, Button, ConstructorElement}  from '@ya.praktikum/react-developer-burger-ui-components';
 import productPropTypes from '../../utils/types';
 import PropTypes from 'prop-types';
-import Modal from '../modalOverlay/ModalPortal';
-import Child from './ModalOverlay';
+import Modal from '../modal/modal-constuctor';
+import ModalOverlay from '../modal/ModalOverlay';
 
 function Product({productDetails, type, isLocked, name}) {
     return (
@@ -16,24 +16,21 @@ function Product({productDetails, type, isLocked, name}) {
     );
   }
   
-  Product.propTypes = {
+Product.propTypes = {
     productDetails: productPropTypes.isRequired,
     type: PropTypes.string,
     isLocked: PropTypes.bool,
     name: PropTypes.string,
   }
 
-
 function BurgerConstructor ({BurgersIng})   {
     
-    const [isShow, setIsShow] = useState(false);
-    
-    const showChanger = () => {setIsShow(!isShow)}
-    const onClose = (e) => { e.preventDefault();
-                if (isShow) {setIsShow(false); } }
+    const [isOpened, setIsOpened] = useState(false);
+    const openModal = () => {setIsOpened(!isOpened)}
+    const isClosed = (e) => {e.preventDefault(); if (isOpened) {setIsOpened(false);}}
     
     return (
-    <>
+    <div>
         <div className={ConstStyles.maintop}>
             <ConstructorElement type="top"
                 isLocked={true}
@@ -60,17 +57,18 @@ function BurgerConstructor ({BurgersIng})   {
                 />
             </div>
             <div className={ConstStyles.button}>
-                <Button type="primary" size="large" onClick={showChanger}>Оформить заказ</Button>
+                <Button type="primary" size="large" onClick={openModal}>Оформить заказ</Button>
             </div>
-        {isShow
-        && (
-        <div onClick={showChanger}>
-            <Modal onClose={onClose}>
-                <Child onClose={onClose} />
-            </Modal>
+             
+            {isOpened
+             && ( 
+             <div onClick={openModal}>
+                <Modal isClosed={isClosed}>
+                     <ModalOverlay isClosed={isClosed} />
+                </Modal>
+             </div> ) }
         </div>
-        )}
-    </>
+    
     ) 
     
     

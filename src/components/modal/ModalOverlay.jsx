@@ -3,25 +3,23 @@ import ReactDOM from 'react-dom';
 import productPropTypes from '../../utils/types';
 
 const modalRoot = document.getElementById('modal');
-const Modal = (props) => {
-  const { children, onClose } = props;
+const ModalOverlay = (props) => {
+  const { children, isClosed } = props;
 
   React.useEffect(() => {
-    document.addEventListener('keydown', onClose);
-    return () => {
-      document.removeEventListener('keydown', onClose);
-    }
+    document.addEventListener('keydown', isClosed);
+    return () => { document.removeEventListener('keydown', isClosed);}
   })
 
   return ReactDOM.createPortal(
-    <div className="Modal">
+    <div className="ModalOverlay">
       {children}
     </div>,
     modalRoot,
   );
 }
-Modal.propTypes = {
+ModalOverlay.propTypes = {
   data: productPropTypes,
 }
 
-export default Modal;
+export default ModalOverlay;
