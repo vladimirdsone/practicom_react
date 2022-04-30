@@ -2,13 +2,18 @@ import React from 'react';
 import modal from './modal-constructor.module.css'
 import img from '../../images/check.png';
 
-function Modal({ isClosed }){
-  function handleClick(e) { e.preventDefault();}
+function Modal({ closeModal }){
+  React.useEffect(() => {
+    document.addEventListener('keydown', closeModal);
+    return () => {
+      document.removeEventListener('keydown', closeModal);
+    }
+  })
   return (
   
-  <div className={modal.ModalOverlay}>
-    <div className={modal.Modal} onClick={handleClick}>
-      <div onClick={isClosed} className={modal.closebutton}>✕</div>
+  <div className={modal.ModalOverlay} onClick={closeModal} >
+    <div className={modal.Modal} onClick={e => e.stopPropagation()}>
+      <div onClick={closeModal} className={modal.closebutton} >✕</div>
         <div className={modal.OrderDetails}>
           <p className={`text text_type_digits-large ${modal.order_numder}`}>56546</p>
             <h2>Идентификатор заказа</h2>

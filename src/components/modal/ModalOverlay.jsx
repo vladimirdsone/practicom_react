@@ -4,16 +4,16 @@ import productPropTypes from '../../utils/types';
 
 const modalRoot = document.getElementById('modal');
 const ModalOverlay = (props) => {
-const { children, isClosed } = props;
-
+  const { children, closeModal } = props;
+  
   React.useEffect(() => {
-    document.addEventListener('keydown', isClosed);
-    return () => { document.removeEventListener('keydown', isClosed);}
+    document.addEventListener('keydown', closeModal);
+    return () => { document.removeEventListener('keydown', closeModal);}
   })
 
   return ReactDOM.createPortal(
-    <div className="ModalOverlay">
-     
+    <div className="Modal">
+      {children}
     </div>,
     modalRoot,
   );

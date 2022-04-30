@@ -4,7 +4,7 @@ import IndStyle from './BurgerIngredients.module.css';
 import productPropTypes from '../../utils/types';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Modal from '../modal/modal-ingridients';
+import Modal from '../IngredientDetails/modal-ingridients';
 import ModalOverlay from '../modal/ModalOverlay';
 
 function LabTabs() {
@@ -26,7 +26,7 @@ function Product({productDetails, isOpen}) {
     const handleClick = () =>{isOpen(productDetails)}
     return (
         <>
-        <div className={IndStyle.bgmain} onClick={handleClick}>
+        <div className={IndStyle.bgmain}  onClick={handleClick} key={productDetails._id}>
             <div className={IndStyle.burger_counter}>
                 <Counter count={2} size="small" />
             </div>
@@ -37,24 +37,32 @@ function Product({productDetails, isOpen}) {
                 {productDetails.price}
                 <CurrencyIcon />
             </div>
-            <div className={IndStyle.burger_name}>{productDetails.name}</div>
+            <div className={IndStyle.burger_name}>
+                {productDetails.name}
+            </div>
         </div>
         </>
     
     );
   }
 Product.propTypes = {
-    ProductDetails: productPropTypes.isRequired,
+    ProductDetails: PropTypes.isRequired,
+    type: PropTypes.string,
+    isLocked: PropTypes.bool,
+    name: PropTypes.string,
+    image: PropTypes.string,
+    price: PropTypes.number,
+    
 }
 
 function BurgerIngredients({BurgersIng}) {
     const [productData, setProductData] = useState(null);
-    const [Opened, setOpened] = useState(false);
+    const [opened, setOpened] = useState(false);
    
     const isOpen = (item) => {
-        if (!Opened) { setProductData(item); setOpened(true);}
+        if (!opened) { setProductData(item); setOpened(true);}
       }
-    const isClosed = (e) => { e.preventDefault(); if (Opened) 
+    const closeModal = (e) => { e.preventDefault(); if (opened) 
         { setProductData(null); setOpened(false); }
       }
     return (
@@ -64,11 +72,11 @@ function BurgerIngredients({BurgersIng}) {
         </div>
         <LabTabs/>
         <ul className={IndStyle.burger_block}> 
-        
-            <li ><h2 id="bun">Булки</h2>
+            <h2 id="bun">Булки</h2>
+            <li>
                 {BurgersIng.map((item) => { if(item.type === 'bun')   {
                     return (
-                        <Product key={item._id} productDetails={item} isOpen={isOpen}/> )
+                     <Product key={item._id}  productDetails={item} isOpen={isOpen} /> )
                     }  return false;          
                 })}
             </li>
@@ -76,7 +84,7 @@ function BurgerIngredients({BurgersIng}) {
             <li>
                 {BurgersIng.map((item) => { if(item.type === 'sauce')   {
                     return (
-                        <Product  productDetails={item} isOpen={isOpen}/> )
+                        <Product key={item._id} productDetails={item} isOpen={isOpen} /> )
                     }  return false;          
                 })}
             </li>
@@ -85,28 +93,25 @@ function BurgerIngredients({BurgersIng}) {
             <li>
                 {BurgersIng.map((item) => { if(item.type === 'main')   {
                     return (
-                        <Product  productDetails={item} isOpen={isOpen}/> )
+                        <Product key={item._id}  productDetails={item} isOpen={isOpen} /> )
                     }  return false;          
                 })}
             </li>  
             
         </ul>
-        {Opened && productData && (
+        {opened && productData && (
         <div>
-        <Modal isClosed={isClosed} data={productData}>
-            <ModalOverlay  isClosed={isClosed} />
+        <Modal closeModal={closeModal} data={productData}>
+            <ModalOverlay  closeModal={closeModal}/>
         </Modal>
         </div>
         )}
 
     </>
-            ) 
-
-
-    BurgerIngredients.propTypes = {
+            )
+BurgerIngredients.propTypes = {
     BurgersIng: PropTypes.arrayOf(productPropTypes).isRequired,
     }
 }
-
 export default  BurgerIngredients
  
