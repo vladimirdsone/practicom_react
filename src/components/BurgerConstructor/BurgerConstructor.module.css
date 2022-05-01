@@ -7,23 +7,30 @@
   }  
 
 .main {
-    position: absolute;
-    height: 388px;
-    
+    position: relative;
+    height: 450px;
     width: 576px;
-    top: 190px;
+    top: 140px;
     overflow-y: scroll;
-    justify-content: center;
-    
+   
+}
+ 
+.list {    
+    width: 567px;
+    justify-content: right;
+    margin-bottom: 10px; 
+    display: flex;
     
 }
-
+.lefticon{
+    margin-top: 30px;
+}
 .maintop {
     position: absolute;
     margin-left: 20px;
     width: 576px;
-    top: 108px;
-    
+    top: 50px;
+    left: 15px;
 }
 
 .mainbottom {
@@ -31,22 +38,19 @@
     margin-left: 20px;
     width: 576px;
     top: 590px;
-    
+    left: 15px;
 }
 
 .button {
     position: absolute;
-    left: 250px;
+    left: 230px;
     width: 576px;
     top: 700px;
- 
 }
 
 .button span{
-  padding-top: 10px;
-padding-right: 5px;
-
-   
+    padding-top: 10px;
+    padding-right: 5px;
 }
 .price{
     padding-right: 40px;
@@ -61,8 +65,5 @@ padding-right: 5px;
 	
 	background-color: #8585AD
 }
- 
-.list {    
-    margin-top: 10px; 
-    margin-bottom: 10px;    
-}
+
+

@@ -12,20 +12,24 @@
   
 }
 
-.heading h1 { 
+.title h1 { 
     text-align: left;
 
 }
+.ul { 
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
 
-.heading ul { 
+}
+.li { 
     list-style-type: none; /* Remove bullets */
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margins */
 
 }
 
-
-.heading h2 { 
+.title h2 { 
     text-align: left;
 
 }
@@ -33,54 +37,58 @@
 .bgmain {
     display: flex;
     flex-direction: column;
-    width: 272px;
-    height: 208px;
+    width: 270px;
+    height: 210px;
     display: inline-block;
-}
+    position: relative;
+    cursor: pointer;
+  }
 
-.main_block {
-    
-    width: 670px;
-    height: 912px;
-    top: 88px;
-    position: absolute;
-   }
-
-.ingredients_block {
+.burger_block {
     height: 520px;
     width: 100%;
-    
     text-align: left;
     overflow-y: scroll;
-    
-    
 }
-.ingredients_item {
-    width: 290px;
-    text-align: center;
-    display: inline-block;
-    padding: 15px;
-}
-.ingredients_block::-webkit-scrollbar {
+
+.burger_block::-webkit-scrollbar {
 	width: 8px;
 	height: 8px;
 	background-color: #2f2f37;
 }
 
-.ingredients_block::-webkit-scrollbar-thumb {
+.burger_block::-webkit-scrollbar-thumb {
 	
 	background-color: #8585AD
 
 }
+.burger_counter {
+    position: relative;
+  }
 
-.price {
-    font-size: 24px;
-    width: 320px;
+.burger_image {
+    height: 120px;
+    width: 220px;
+    justify-content: center;
+  }
+
+.burger_price {
+    width: 240px;
+    font-size: 28px;
+    margin-right: 9px;
+    flex-direction: row;
+    justify-content: center;
+    display: flex;
+    gap: 9px;
+    
+  }
+
+.burger_name {
+    align-content: center;
     text-align: center;
-
-}
-
-.image {
-    width: 320px;
-    text-align: center;
-}
+    height: 48px;
+    width: 220px;
+    font-size: 16px;
+    justify-content: center;
+    display: block;
+  }

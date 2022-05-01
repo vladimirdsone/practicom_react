@@ -1,8 +1,11 @@
-import React from 'react';
-import { useState } from 'react';
+
 import  {Tab, Counter, CurrencyIcon}  from '@ya.praktikum/react-developer-burger-ui-components';
 import IndStyle from './BurgerIngredients.module.css';
-import {products} from "../../utils/mock-order"
+import productPropTypes from '../../utils/types';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import Modal from '../IngredientDetails/modal-ingridients';
+import ModalOverlay from '../modal/ModalOverlay';
 
 function LabTabs() {
     const [current, setCurrent] = useState('bun');
@@ -19,89 +22,97 @@ function LabTabs() {
   );
 }
 
-const BurgerIngredients = function() {
-
-    const bun = products.map(function(item, index){
-        if(item.type === 'bun')   {
-        return (
-       
-        <div key = {item._id} className={IndStyle.bgmain}>
-            <div  className={IndStyle.image}>
-                <img src={item.image} />
-            </div>
-            <div className={IndStyle.price}>
-                {item.price}<CurrencyIcon type="primary"/>
-            </div>  
-            <div className={IndStyle.ingredients_item}> 
-                {item.name}
-            </div>   
-        </div>
-         
-        )}
-    })
-
-    const sauce = products.map(function(item, index){
-        if(item.type === 'sauce')   {
-        return (
-       
-        <div key = {item._id} className={IndStyle.bgmain}>
-            <div  className={IndStyle.image}>
-                <img src={item.image} />
-            </div>
-            <div className={IndStyle.price}>
-                {item.price}<CurrencyIcon type="primary"/>
-            </div>  
-            <div className={IndStyle.ingredients_item}> 
-                {item.name}
-            </div>   
-        </div>
-         
-        )}
-    })
-    const main = products.map(function(item, index){
-        if(item.type === 'main')   {
-        return (
-       
-        <div key = {item._id} className={IndStyle.bgmain}>
-            <div  className={IndStyle.image}>
-                <img src={item.image} />
-            </div>
-            <div className={IndStyle.price}>
-                {item.price}<CurrencyIcon type="primary"/>
-            </div>  
-            <div className={IndStyle.ingredients_item}> 
-                {item.name}
-            </div>   
-        </div>
-         
-        )}
-    })
-  
-        
+function Product({productDetails, isOpen}) {
+    const handleClick = () =>{isOpen(productDetails)}
     return (
         <>
-            <div className={IndStyle.heading}>
-                <h1>Соберите бургер</h1>
-                <LabTabs />
-                <ul className={IndStyle.ingredients_block}>
-                    <li>
-                        <h2 id="bun">Булки</h2>
-                        {bun}
-                    </li>
-                    <li>
-                        <h2 id="sauce">Соусы</h2>
-                        {sauce}
-                    </li>
-                    <li>
-                        <h2 id="main">Начинки</h2>
-                        {main}
-                    </li>
-                </ul>
+        <div className={IndStyle.bgmain}  onClick={handleClick} key={productDetails._id}>
+            <div className={IndStyle.burger_counter}>
+                <Counter count={2} size="small" />
             </div>
+            <div  className={IndStyle.burger_image}>
+                <img src={productDetails.image} />
+            </div>
+            <div className={IndStyle.burger_price}>
+                {productDetails.price}
+                <CurrencyIcon />
+            </div>
+            <div className={IndStyle.burger_name}>
+                {productDetails.name}
+            </div>
+        </div>
         </>
-     );
+    
+    );
+  }
+Product.propTypes = {
+    ProductDetails: PropTypes.isRequired,
+    type: PropTypes.string,
+    isLocked: PropTypes.bool,
+    name: PropTypes.string,
+    image: PropTypes.string,
+    price: PropTypes.number,
+    
 }
 
+function BurgerIngredients({BurgersIng}) {
+    const [productData, setProductData] = useState(null);
+    const [opened, setOpened] = useState(false);
+   
+    const isOpen = (item) => {
+        if (!opened) { setProductData(item); setOpened(true);}
+      }
+    const closeModal = (e) => { 
+       e.preventDefault(); if (opened) 
+        { setProductData(null); setOpened(false); }
+      }
+    return (
+        <>
+        <div className={IndStyle.title}>
+            <h1>Соберите бургер</h1>
+        </div>
+        <LabTabs/>
+        <ul className={IndStyle.burger_block}> 
+            <h2 id="bun">Булки</h2>
+            <li>
+                {BurgersIng.map((item) => { if(item.type === 'bun')   {
+                    return (
+                     <Product key={item._id}  productDetails={item} isOpen={isOpen} /> )
+                    }  return false;          
+                })}
+            </li>
+            <h2 id="sauce">Соусы</h2>
+            <li>
+                {BurgersIng.map((item) => { if(item.type === 'sauce')   {
+                    return (
+                        <Product key={item._id} productDetails={item} isOpen={isOpen} /> )
+                    }  return false;          
+                })}
+            </li>
+            
+            <h2 id="main">Ингридиенты</h2>
+            <li>
+                {BurgersIng.map((item) => { if(item.type === 'main')   {
+                    return (
+                        <Product key={item._id}  productDetails={item} isOpen={isOpen} /> )
+                    }  return false;          
+                })}
+            </li>  
+            
+        </ul>
+        {opened && productData && (
+        <div>
+        <Modal closeModal={closeModal} data={productData}>
+            <ModalOverlay  closeModal={closeModal}/>
+        </Modal>
+        </div>
+        )}
 
+    </>
+            )
+BurgerIngredients.propTypes = {
+    BurgersIng: PropTypes.arrayOf(productPropTypes).isRequired,
+    }
+}
 export default  BurgerIngredients
  
