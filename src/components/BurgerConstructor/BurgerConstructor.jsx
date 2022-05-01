@@ -36,9 +36,6 @@ function BurgerConstructor ({BurgersIng})   {
     const [isopened, setIsopened] = useState(false);
     const openModal = () => {setIsopened(!isopened)}
     const closeModal = (e) => {
-        if (e.keyCode != 27) {
-            e.keydown();
-          }
         e.preventDefault(); 
         if (isopened) {setIsopened(false);
         }}

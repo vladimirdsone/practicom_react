@@ -63,10 +63,7 @@ function BurgerIngredients({BurgersIng}) {
         if (!opened) { setProductData(item); setOpened(true);}
       }
     const closeModal = (e) => { 
-        if (e.keyCode != 27) {
-            e.keydown();
-          }
-        e.preventDefault(); if (opened) 
+       e.preventDefault(); if (opened) 
         { setProductData(null); setOpened(false); }
       }
     return (

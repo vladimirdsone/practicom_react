@@ -12,7 +12,7 @@ function Modal({ closeModal }){
   return (
   
   <div className={modal.ModalOverlay} onClick={closeModal} >
-    <div className={modal.Modal} onClick={e => e.stopPropagation()}>
+    <div className={modal.Modal} onClick={e => { e.stopPropagation(); e.preventDefault();}}>
       <div onClick={closeModal} className={modal.closebutton} >✕</div>
         <div className={modal.OrderDetails}>
           <p className={`text text_type_digits-large ${modal.order_numder}`}>56546</p>

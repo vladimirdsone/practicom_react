@@ -19,15 +19,13 @@ function App() {
         })
         .then((req) => { setIngredients(req.data); setIsLoading(false)})
         .catch((e) => {setHasError(true); setIsLoading(false); return e; })
-        .then((req) => { setIngredients(req.data); setIsLoading(false)});
-        
-    };
+       };
     getIngridients();
    }, [])
  
   return (
     <>
-        <Header/>
+      <Header/>
       <div className={AppStyle.container}>
         <div className={AppStyle.main_block}>
           <BurgerIngredients BurgersIng={ingredients}/>
