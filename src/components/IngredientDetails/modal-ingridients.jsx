@@ -3,15 +3,25 @@ import modal from './modal-ingridients.module.css'
 import productPropTypes from '../../utils/types';
 import PropTypes from 'prop-types';
 
-function Modal({ data, closeModal,  }) {
+function Modal({ data, closeModal}) {
   
   React.useEffect(() => {
+
     document.addEventListener('keydown', closeModal);
     return () => {
       document.removeEventListener('keydown', closeModal);
     }
+    
   })
-  
+  Modal.propTypes = {
+    ProductDetails: PropTypes.isRequired,
+    type: PropTypes.string,
+    isLocked: PropTypes.bool,
+    name: PropTypes.string,
+    image: PropTypes.string,
+    price: PropTypes.number,
+    
+}
   return (
     <div className={modal.ModalOverlay} onClick={closeModal} >
       <div className={modal.Modal} onClick={e => { e.stopPropagation(); e.preventDefault();}}>

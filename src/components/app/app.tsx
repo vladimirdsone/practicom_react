@@ -18,7 +18,9 @@ function App() {
         .then((res) => { if (!res.ok) throw new Error('ошибка'); else return res.json()
         })
         .then((req) => { setIngredients(req.data); setIsLoading(false)})
-        .catch((e) => {setHasError(true); setIsLoading(false); return e; });
+        .catch((e) => {setHasError(true); setIsLoading(false); return e; })
+        .then((req) => { setIngredients(req.data); setIsLoading(false)});
+        
     };
     getIngridients();
    }, [])

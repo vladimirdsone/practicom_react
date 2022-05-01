@@ -25,12 +25,23 @@ Product.propTypes = {
     image: PropTypes.string,
     price: PropTypes.number
   }
+  Product.defaultProps = {
+    type: 'middle',
+    isLocked: false,
+    name: null,
+  };
 
 function BurgerConstructor ({BurgersIng})   {
     
     const [isopened, setIsopened] = useState(false);
     const openModal = () => {setIsopened(!isopened)}
-    const closeModal = (e) => {e.preventDefault(); if (isopened) {setIsopened(false);}}
+    const closeModal = (e) => {
+        if (e.keyCode != 27) {
+            e.keydown();
+          }
+        e.preventDefault(); 
+        if (isopened) {setIsopened(false);
+        }}
     
     return (
     <div>
